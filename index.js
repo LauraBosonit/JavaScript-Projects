@@ -1,0 +1,1 @@
+//Poner un evento a los inputs para que al pulsarlos. se tachen de la lista

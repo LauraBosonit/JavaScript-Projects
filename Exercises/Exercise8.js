@@ -9,20 +9,34 @@ console.log(result); // 1KB
 
 
 const result2 = fromBytesToFormattedSizeUnits(123456789);
-console.log(result); // 123MB
+console.log(result2); // 123MB
 
 
 const result3 = fromBytesToFormattedSizeUnits(-12145489451.5932, 5);
-console.log(result); // -12.145GB
+console.log(result3); // -12.145GB
 
 // Solución:
-function fromBytesToFormattedSizeUnits(bytes, digits) {
+function fromBytesToFormattedSizeUnits(bytes, digits = 3) {
     const units = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB"];
-    
-    
+    let end = false;
+    let counter = 0;
+    let num = bytes;
 
-    if(digits) {
-        bytes = bytes.toPrecision(digits);
+    while (!end) {
+        if (num < 0) {
+            num = Math.abs(num);
+        } else {
+            if (Math.floor(num / 1000) <= 0) {
+                num = num.toPrecision(digits);
+                end = true;
+                if(bytes <= 0) {
+                    return `-${num}${units[counter]}`; 
+                }
+                return num + units[counter];
+            } else {
+                num = num / 1000;
+                counter++;
+            }
+        }
     }
-    console.log(bytes);
 }

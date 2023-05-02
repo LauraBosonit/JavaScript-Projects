@@ -35,7 +35,3 @@ main {
     font-size: 20px;
     justify-content: center;    
 }
-
-.strike {
-    text-decoration: line-through;
-}

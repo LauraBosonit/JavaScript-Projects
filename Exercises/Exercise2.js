@@ -2,16 +2,6 @@
 const arrDirty = [NaN, 0, 5, false, -1, '',undefined, 3, null, 'test'];
 
 // Solución:
-let arrClean = [];
-
-for(let i = 0; i < arrDirty.length; i++) {
-    if(arrDirty[i] === 0) {
-        arrClean.push(arrDirty[i]);
-    }
-   
-    if(Boolean(arrDirty[i])) {
-        arrClean.push(arrDirty[i])
-    }
-}
+let arrClean = arrDirty.filter(value => Boolean(value) ? value : "");
 
 console.log(arrClean);

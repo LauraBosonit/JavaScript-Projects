@@ -9,12 +9,13 @@ console.log(result); // [ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7 ] ]
 
 // Solución:
 function splitArrayIntoChunks(array, number) {
-    let original = [...array];
-    let result = [];
+    // let original = [...array];
+    // let result = [];
 
-    while(original.length > 0) {
-        result.push(original.splice(0, number));
-    }
+    // while(original.length > 0) {
+    //     result.push(original.splice(0, number));
+    // }
 
-    return result;
+    // return result;
+    return Array.from({length: Math.ceil(array.length/number)}, (v,i) => array.slice(i * number, i * number + number));
 }

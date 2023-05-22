@@ -8,9 +8,10 @@ console.log(myObjLowercase); // { name: 'Charles', address: 'Home Street' }
 
 // Solución:
 function toLowercaseKeys(object) {
-    let result = {};
-    for (const key in object) {
-        result[key.toLowerCase()] = object[key];
-    }
-    return result;
+    let obj = Object.entries(object);
+
+    let newObject = {}
+    obj.map(item => newObject[item[0].toLowerCase()] = item[1]);
+
+    return newObject;
 }

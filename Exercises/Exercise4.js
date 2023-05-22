@@ -4,17 +4,8 @@ const arrNumber2 = [1,2,3,4,5];
 const arrNumber3 = [1,4,7,2];
 
 // Solución:
-// Versión larga: 
-let allNumbers = [...arrNumber1, ...arrNumber2, ...arrNumber3];
-let numbers = [];
+let numbers = [...arrNumber1, ...arrNumber2, ...arrNumber3]
+let allNumbers = [];
+allNumbers = numbers.filter(number => allNumbers.includes(number) ? "" : allNumbers.push(number)); 
 
-for(let i = 0; i < allNumbers.length; i++) {
-    if(!numbers.includes(allNumbers[i])) {
-        numbers.push(allNumbers[i]);
-    }
-}
-
-// Versión corta: 
-// let numbers = new Set(arrNumber1.concat(arrNumber2).concat(arrNumber3));
-
-console.log(numbers)
+console.log(allNumbers)

@@ -11,11 +11,6 @@ const arrCities2 = [
 
 // Solución:
 let cities = [];
-
-arrCities2.forEach(city => {
-    if(!city.capital) {
-        city.country === "Spain" ? cities.push({ city: city.city, isSpain: true }) : cities.push({ city: city.city, isSpain: false });
-    }
-});
+cities = arrCities2.filter(city => !city.capital ? (city.country === "Spain" ? cities.push({city: city.city, isSpain: true}) : cities.push({city: city.city, isSpain: false})) : "");
 
 console.log(cities);
